@@ -1,0 +1,13 @@
+services:
+  mariadb:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: inventory_lifecycle
+    ports:
+      - "3306:3306"
+    volumes:
+      - inventory-db:/var/lib/mysql
+volumes:
+  inventory-db:
